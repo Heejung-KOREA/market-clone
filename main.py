@@ -66,7 +66,7 @@ async def get_image(item_id):
 @app.post('/signup')
 def signup(id:Annotated[str,Form()], password:Annotated[str, Form()]):
     print(id, password)
-    return '200'
+    return "200"
 
 app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
