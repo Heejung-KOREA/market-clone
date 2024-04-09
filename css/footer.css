@@ -1,0 +1,37 @@
+/* 하단바 하단 고정 */
+footer {
+	position: fixed;
+	bottom: 0;
+	/* 너비를 100%로 채워줌 */
+	width: 100vw;
+	padding-bottom: 30px;
+	padding-top: 20px;
+	border-top: 1px solid #eaeaea;
+	background-color: white;
+}
+
+.footer-block {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+/* 하단바 아이콘 */
+.footer-icons {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 20px 0 20px;
+	cursor: pointer;
+}
+
+.footer-icons__desc {
+	margin-top: 5px;
+	font-weight: bold;
+	transform: scale(1);
+}
+
+.footer-icons__img {
+	width: 40px;
+}
