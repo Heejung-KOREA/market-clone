@@ -18,6 +18,7 @@ const handleSubmit = async (event) => {
     formData.set("password", sha256Password);
 
     const div = document.querySelector("#info");
+
     if (checkPassword()) {   //비밀번호 확인 결과 두개의 값이 같다면, 요청을 보냄
         const res = await fetch("/signup", {
             method: "post",
@@ -25,8 +26,10 @@ const handleSubmit = async (event) => {
         });
         const data = await res.json();
         if (data === "200") {   //서버에서 응답을 줬을때만 변경
-            div.innerText = "회원가입 성공";
-            div.style.color = "blue";
+            // div.innerText = "회원가입 성공";
+            // div.style.color = "blue";
+            alert('회원 가입에 성공했습니다.');
+            window.location.pathname = "/login.html"; //로그인 페이지로 이동
         }
     } else {
         div.innerText = "비밀번호가 같지 않습니다.";
