@@ -6,6 +6,7 @@ from fastapi_login import LoginManager
 from fastapi_login.exceptions import InvalidCredentialsException
 from typing import Annotated
 import sqlite3
+import hashlib
 
 #데이터베이스 연결
 con = sqlite3.connect('db.db', check_same_thread=False)
@@ -70,6 +71,9 @@ def signup(id:Annotated[str,Form()],
            password:Annotated[str, Form()],
            name:Annotated[str,Form()],
            email:Annotated[str,Form()]):
+
+    # pw = password
+    # hash_pw = hashlib.sha256(pw.encode()).hexdigest()
     
     #받은 정보 db에 저장하기
     cur.execute(f"""
@@ -77,6 +81,8 @@ def signup(id:Annotated[str,Form()],
                 VALUES ('{id}', '{name}', '{email}', '{password}')
                 """)
     con.commit()
+    
+    # print(hash_pw)   
     
     return "200"
 
